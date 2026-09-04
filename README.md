@@ -68,7 +68,7 @@ pulse.
 
 The verification suite splits its pipeline tasks to guarantee absolute behavioral correctness and structural layout integrity before submission.
 
-### 1. Behavioral RTL Simulation Loop
+### Behavioral RTL Simulation Loop
 Driven locally or remotely by a Python-based `cocotb` test harness. 
 * Navigate terminal focus into the verification folder: `cd test`
 * Clean and fire up the simulation environment: `make clean && make`
@@ -111,12 +111,6 @@ silently drifting apart):
 | Test | Verifies |
 | :--- | :--- |
 | `test_doc_addr8to15_are_not_a_uniform_input_port` | Address `0xA` is hard-wired to `0`, not a live `ui_in` tap, matching [ISA.md](ISA.md)'s address map rather than the old (incorrect) "uniform input port" description this test is named after. |
-
-### 2. Gate-Level Netlist (GL) Layout Hardening
-When OpenLane/LibreLane finishes layout compilation, a Gate-Level simulation (`GATES=yes`) verifies the synthesized netlist cells against the physical IHP standard cell simulation libraries.
-
-* **Tooling Fix Note:** Because the IHP PDK simulation model files (`sg13g2_stdcell.v`) use advanced edge-sensitive timing rules wrapped inside `ifnone` constructs, standard open-source tools like Icarus Verilog v12 will crash. 
-* To resolve this, the automated **`.github/workflows/gds.yaml`** configuration passes the argument **`IVVP_ARGS: "-gno-specify"`** directly into the testing container. This bypasses timing parameters, linking all standard cells together for a clean pass.
 
 ---
 
