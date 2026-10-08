@@ -2,6 +2,8 @@
 
 # MC14500B Extended 1-bit Microcontroller SoC
 
+Link to the simulator: https://alexandercoabad.github.io/mc14500b-sim/
+
 An advanced, self-contained 1-bit Microcontroller System on Chip (SoC) centered around a hardened clone of the iconic 1977 Motorola MC14500B Industrial Control Unit (ICU). This layout occupies a **1x2 tile footprint** and is target-hardened specifically for the **TTIHP (IHP 130 nm BiCMOS SG13G2)** open-source silicon shuttle run.
 
 Unlike a standalone CPU core, this macro design integrates a dynamic 64-byte program memory, static scratchpad registers, hardware-mapped peripherals (edge detector, clock divider, output latch array), and dedicated parallel I/O port interfaces directly into a single piece of silicon containing **2,697 standard cells** (excluding fill and decap cells).
